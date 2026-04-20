@@ -1,0 +1,16 @@
+"use client";
+
+import { useStore } from "@repo/zustand/store";
+
+export default function Home() {
+  const count = useStore((state) => state.count);
+  const increment = useStore((state) => state.increment);
+  const decrement = useStore((state) => state.decrement);
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
