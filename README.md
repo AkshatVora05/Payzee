@@ -11,7 +11,6 @@ npx create-turbo@latest -e with-tailwind
 ```
 
 ## What's inside?
-
 This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
