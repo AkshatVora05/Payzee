@@ -1,10 +1,7 @@
-import "@repo/ui/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import { Providers } from "./providers";
-
-const geist = Geist({ subsets: ["latin"] });
+import AppbarClient from "@/components/common/AppbarClient";
 
 export const metadata: Metadata = {
   title: "Payzee",
@@ -18,8 +15,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={geist.className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased font-sans bg-[#F8F9FB] text-[#0F111A]">
         <Providers>
+          <AppbarClient/>
           {children}
         </Providers>
       </body>

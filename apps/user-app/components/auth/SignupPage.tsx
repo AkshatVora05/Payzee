@@ -56,11 +56,12 @@ export const SignupPage = () => {
                     onChange={setPassword}
                     placeholder="******"
                     type="password"
+                    showPasswordToggle
                     required
                 />
                 
                 {error && (
-                    <div className="px-4 py-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm font-medium text-center">
+                    <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium text-center">
                         {error}
                     </div>
                 )}
@@ -70,9 +71,9 @@ export const SignupPage = () => {
                 </Button>
             </form>
 
-            <p className="mt-8 text-center text-zinc-400 text-sm font-medium leading-relaxed">
-                Already have an account? <br/>
-                <a href="/auth/signin" className="text-blue-500 hover:text-blue-400 transition-colors">Sign In</a>
+            <p className="mt-8 text-center text-[#6B7280] text-sm font-medium leading-relaxed">
+                Already have an account?{" "}
+                <a href="/auth/signin" className="text-[#7B61FF] hover:text-[#6C4FE0] font-semibold transition-colors">Sign In</a>
             </p>
         </AuthCard>
     );

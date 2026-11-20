@@ -1,37 +1,64 @@
+"use client";
+
 import { ReactNode } from "react";
 
-export const AuthCard = ({ title, children, subtitle }: { title: string; subtitle?: string; children: ReactNode }) => {
+export const AuthCard = ({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+}) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 dark:bg-black px-4 font-sans selection:bg-blue-500/30 transition-colors duration-300">
-      
-      {/* Branding / Logo */}
-      <div className="mb-6 flex items-center justify-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-        </div>
-        <span className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Payzee</span>
+    <div className="min-h-screen bg-[#F8F9FB] flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
+      {/* Brand Header */}
+      <div className="mb-8 flex flex-col items-center text-center">
+        <a href="/" className="flex items-center gap-2.5 mb-2 group">
+          <div className="w-10 h-10 rounded-xl bg-[#5844ED] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
+            <svg
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <span className="text-2xl font-bold tracking-tight text-[#0F111A]">
+            Payzee
+          </span>
+        </a>
       </div>
 
-      <div className="w-full max-w-[400px] p-8 sm:p-10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-3xl rounded-[2.5rem] shadow-2xl border border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
-        {/* Subtle background glow */}
-        <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl opacity-60"></div>
-        
-        <div className="relative mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight mb-2 text-slate-900 dark:text-white transition-colors duration-300">
+      {/* Main Card */}
+      <div className="w-full max-w-[440px] bg-white border border-gray-200/80 rounded-2xl p-8 sm:p-10 shadow-sm">
+        <div className="mb-6 text-center">
+          <h1 className="text-2xl font-bold tracking-tight text-[#0F111A]">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-sm text-slate-500 dark:text-zinc-400 font-medium transition-colors duration-300">
+            <p className="mt-1.5 text-sm text-[#646A79] leading-relaxed">
               {subtitle}
             </p>
           )}
         </div>
-        <div className="relative space-y-5">
+
+        <div className="space-y-5">
           {children}
         </div>
+      </div>
+
+      {/* Trust & Security footer notice */}
+      <div className="mt-8 text-center text-xs text-[#8A909F] flex items-center gap-1.5">
+        <svg className="w-4 h-4 text-[#5844ED]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <span>End-to-end encrypted bank-grade security</span>
       </div>
     </div>
   );

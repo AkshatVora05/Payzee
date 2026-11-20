@@ -4,18 +4,31 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  onClick: () => void;
-  variant?: "primary" | "secondary";
+  onClick?: () => void;
+  variant?: "primary" | "secondary" | "outline";
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  className?: string;
 }
 
-export const Button = ({ children, onClick, variant = "primary", disabled = false, type = "button" }: ButtonProps) => {
-  const baseStyles = "w-full py-3 px-4 rounded-xl font-semibold text-[15px] transition-all duration-300 transform active:scale-[0.98] disabled:opacity-70 disabled:scale-100 disabled:cursor-not-allowed";
-  
+export const Button = ({
+  children,
+  onClick,
+  variant = "primary",
+  disabled = false,
+  type = "button",
+  className = "",
+}: ButtonProps) => {
+  const baseStyles =
+    "w-full inline-flex items-center justify-center font-semibold text-sm h-11 px-5 rounded-xl transition-all duration-150 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none select-none cursor-pointer";
+
   const variants = {
-    primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/25",
-    secondary: "bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-300 dark:border-white/5",
+    primary:
+      "bg-[#5844ED] hover:bg-[#4C35E0] text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5844ED]",
+    secondary:
+      "bg-white hover:bg-[#F8F9FB] text-[#0F111A] border border-gray-200 hover:border-gray-300 shadow-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400",
+    outline:
+      "bg-transparent hover:bg-[#F2EFFF] text-[#5844ED] border border-[#5844ED]/30 hover:border-[#5844ED] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5844ED]",
   };
 
   return (
@@ -23,7 +36,7 @@ export const Button = ({ children, onClick, variant = "primary", disabled = fals
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variants[variant]}`}
+      className={`${baseStyles} ${variants[variant]} ${className}`}
     >
       {children}
     </button>

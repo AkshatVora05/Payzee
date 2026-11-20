@@ -26,3 +26,17 @@ export const ResendOtpInput = z.object({
 });
 
 export type ResendOtpInput = z.infer<typeof ResendOtpInput>;
+
+export const PayloadSchema = z.object({
+    token: z.string(),
+    user_identifier: z.coerce.number(),
+    amount: z.coerce.number()
+});
+
+export type PayloadSchema = z.infer<typeof PayloadSchema>;
+
+export const VerifyUserInput = z.object({
+    email: z.email()
+});
+
+export type VerifyUserInput = z.infer<typeof VerifyUserInput>;

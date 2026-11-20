@@ -1,7 +1,7 @@
 {
   "name": "@repo/db",
   "version": "0.0.0",
-  "type": "module", 
+  "type": "module",
   "dependencies": {
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",
@@ -9,7 +9,9 @@
     "pg": "^8.20.0"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./enums": "./generated/prisma/enums.ts",
+    "./browser": "./generated/prisma/browser.ts"
   },
   "devDependencies": {
     "prisma": "^7.7.0"
